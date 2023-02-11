@@ -81,3 +81,5 @@ app.get('/calculations', (req, res) => {
 app.listen(5050, () => {
     console.log("Server running");
 });
+
+console.log("Hellow word");
