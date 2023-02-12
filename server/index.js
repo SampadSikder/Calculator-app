@@ -55,17 +55,15 @@ app.post('/create', (req, res) => {
 app.put("/update", (req, res) => {
     const num1 = req.body.num1;
     const operation = req.body.operation;
-
-    const answer = ans(num1, num2, operation);
-
-    db.query("UPDATE SET calculated_values operation=?,answer=? where num1=?"), [operation, answer, num1],
+    console.log(num1, operation);
+    db.query(("UPDATE calculated_values SET operation = ? WHERE number1 = ?"), [operation, num1],
         (err, result) => {
             if (err) {
                 console.log(err);
             } else {
-                res.send(result);
+                res.send("Values inserted");
             }
-        }
+        });
 })
 
 app.get('/calculations', (req, res) => {
